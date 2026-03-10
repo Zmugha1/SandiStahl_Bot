@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Client Profile",
+  "description": "Schema for Sandy Bot client profiles",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "compartment": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

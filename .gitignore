@@ -1,0 +1,37 @@
+# Streamlit secrets (local dev - never commit keys)
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+venv/
+*.egg-info/
+dist/
+
+# IDEs
+.idea/
+.vscode/
+
+# Data
+data/*
+!data/.gitkeep
+!data/vector_db/
+!data/vector_db/chroma/
+!data/vector_db/chroma/.gitkeep
+
+# ML artifacts
+*.pkl
+*.joblib
+*.h5
+*.model
+
+# Logs
+*.log
+
+# Court of Rules - user custom rules (keep directory)
+court-of-rules/custom-rules/*
+!court-of-rules/custom-rules/.gitkeep
