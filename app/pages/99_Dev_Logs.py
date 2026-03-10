@@ -11,8 +11,6 @@ from components.sidebar import render_sidebar
 
 DEV_PASSWORD = "sandydev2026"
 
-st.set_page_config(page_title="Developer Logs", layout="wide")
-
 if "dev_authenticated" not in st.session_state:
     st.session_state.dev_authenticated = False
 

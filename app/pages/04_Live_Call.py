@@ -12,7 +12,6 @@ from utils.styles import CUSTOM_CSS
 from utils.logger import log_activity
 from components.sidebar import render_sidebar
 
-st.set_page_config(page_title="Live Coaching Assistant", layout="wide")
 render_sidebar()
 log_activity("page_view", page="Live Call")
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)

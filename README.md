@@ -14,10 +14,11 @@
 ### Deploy to Streamlit Cloud
 
 1. Go to [share.streamlit.io](https://share.streamlit.io)
-2. Click **New app**
-3. Repository: `Zmugha1/SandiStahl_Bot`, Branch: `main`
-4. Main file path: `app.py`
-5. Click **Deploy**
+2. Click **Deploy an app**
+3. Repository: `Zmugha1/SandiStahl_Bot`
+4. Branch: `sandy-dashboard-only` ← **SELECT THIS**
+5. Main file path: `app/app.py`
+6. Click **Deploy**
 
 ### Local Development
 

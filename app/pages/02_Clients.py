@@ -12,7 +12,6 @@ from utils.styles import CUSTOM_CSS, DISC_COLORS
 from utils.logger import log_activity
 from components.sidebar import render_sidebar
 
-st.set_page_config(page_title="Client Intelligence", layout="wide")
 render_sidebar()
 log_activity("page_view", page="Clients")
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)

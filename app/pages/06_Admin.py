@@ -12,7 +12,6 @@ from utils.styles import CUSTOM_CSS
 from utils.logger import log_activity
 from components.sidebar import render_sidebar
 
-st.set_page_config(page_title="Admin Streamliner", layout="wide")
 render_sidebar()
 log_activity("page_view", page="Admin")
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
