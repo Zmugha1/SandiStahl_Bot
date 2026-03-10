@@ -8,7 +8,7 @@ if str(_root) not in sys.path:
 import streamlit as st
 import plotly.graph_objects as go
 from utils.database import get_all_clients
-from utils.styles import CUSTOM_CSS, DISC_COLORS
+from utils.styles import CUSTOM_CSS, DISC_COLORS, get_compartment_name
 from utils.logger import log_activity
 from components.sidebar import render_sidebar
 
@@ -32,7 +32,8 @@ if client:
     with col3:
         st.metric("Blocker", client.get("blocker", "-") or "None", "")
     with col4:
-        st.metric("Compartment", client.get("compartment", "-"), "")
+        comp = client.get("compartment", "-")
+        st.metric("Stage", get_compartment_name(comp) if comp else "-", comp or "")
 
     # I.L.W.E. Goals (green gradient)
     st.markdown("### I.L.W.E. Goals")

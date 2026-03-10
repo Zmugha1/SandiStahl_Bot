@@ -7,6 +7,7 @@ def render_sidebar():
     st.sidebar.markdown("*Complete 6-Module Experience*")
     st.sidebar.markdown("---")
 
+    st.sidebar.page_link("pages/00_How_to_Use.py", label="📖 How to Use")
     st.sidebar.page_link("pages/01_Dashboard.py", label="📊 Executive Dashboard")
     st.sidebar.page_link("pages/02_Clients.py", label="👥 Client Intelligence")
     st.sidebar.page_link("pages/03_Pipeline.py", label="📈 Pipeline Visualizer")

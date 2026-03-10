@@ -18,4 +18,4 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.switch_page("pages/01_Dashboard.py")
+st.switch_page("pages/00_How_to_Use.py")

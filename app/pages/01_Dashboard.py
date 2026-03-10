@@ -8,7 +8,7 @@ if str(_root) not in sys.path:
 import streamlit as st
 from datetime import datetime
 from utils.database import get_all_clients
-from utils.styles import CUSTOM_CSS
+from utils.styles import CUSTOM_CSS, get_compartment_name
 from utils.logger import log_activity
 from components.sidebar import render_sidebar
 
@@ -29,7 +29,8 @@ schedule = [
     {"time": "4:00 PM", "client": "Lisa Wong", "compartment": "C2", "topic": "Education session"},
 ]
 for s in schedule:
-    st.markdown(f"**{s['time']}** — {s['client']} ({s['compartment']}) — {s['topic']}")
+    comp_name = get_compartment_name(s["compartment"])
+    st.markdown(f"**{s['time']}** — {s['client']} ({comp_name}) — {s['topic']}")
 
 st.markdown("---")
 
@@ -40,7 +41,7 @@ stages = ["IC", "C1", "C2", "C3", "C4", "C5"]
 counts = {s: sum(1 for c in clients if c.get("compartment") == s) for s in stages}
 for i, s in enumerate(stages):
     with [col1, col2, col3, col4, col5, col6][i]:
-        st.metric(s, counts.get(s, 0))
+        st.metric(get_compartment_name(s), counts.get(s, 0))
 
 st.markdown("---")
 
@@ -62,7 +63,8 @@ st.markdown("---")
 st.markdown("### 🔥 Hot Prospects")
 hot = sorted(clients, key=lambda c: c.get("interest_level", 0), reverse=True)[:3]
 for c in hot:
-    st.markdown(f"**{c['name']}** — {c['compartment']} — {'⭐' * c.get('interest_level', 0)} — {c.get('best_match', '')}")
+    comp_name = get_compartment_name(c.get("compartment"))
+    st.markdown(f"**{c['name']}** — {comp_name} — {'⭐' * c.get('interest_level', 0)} — {c.get('best_match', '')}")
 
 st.markdown("---")
 
