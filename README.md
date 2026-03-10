@@ -1,96 +1,90 @@
-# MLDLC Governance Framework
+# Sandy Bot POC
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Machine Learning Development Lifecycle Governance Framework**
+> **Sandy Bot - Coaching Assistant POC**
 > 
-> Transparent | Explainable | Auditable | Traceable
+> Client Profiles | Pipeline Visualizer | Coaching Assistant | Post Call Analysis
 
 ## Overview
 
-The MLDLC Governance Framework establishes a comprehensive, transparent, and auditable system for managing the entire lifecycle of machine learning initiatives. Built on the VTCO (Verb-Task-Constraint-Outcome) methodology with RED/YELLOW/GREEN risk matrix classification.
+Sandy Bot is a proof-of-concept coaching assistant built on the MLDLC Governance Framework. It provides client profile management, pipeline visualization, AI coaching assistance, and post-call analysis capabilities.
 
 ## Quick Start
 
 ### Deploy to Streamlit Cloud
 
-1. Fork this repository
-2. Connect to [Streamlit Cloud](https://share.streamlit.io)
-3. Deploy with main file: `app/main.py`
+1. Go to [Streamlit Cloud](https://share.streamlit.io)
+2. Click **"New app"**
+3. Select: `Zmugha1/SandiStahl_Bot`
+4. Branch: `feature/sandy-bot-poc`
+5. Main file path: `app/main.py`
+6. Add `OPENAI_API_KEY` in the app secrets
+7. Click **"Deploy"**
 
 ### Local Development
 
 ```bash
 # Clone repository
-git clone https://github.com/Zmugha1/mldlc-governance-framework.git
-cd mldlc-governance-framework
+git clone https://github.com/Zmugha1/SandiStahl_Bot.git
+cd SandiStahl_Bot
+
+# Switch to Sandy Bot branch
+git checkout feature/sandy-bot-poc
 
 # Install dependencies
 pip install -r requirements.txt
 
+# Add your OpenAI API key to .streamlit/secrets.toml
+# OPENAI_API_KEY = "your-key-here"
+
 # Run Streamlit app
 streamlit run app/main.py
-
-# Run MCP Server (separate terminal)
-uvicorn mcp.mcp_server:app --reload --port 8000
 ```
 
 ## Repository Structure
 
 ```
-mldlc-governance-framework/
-├── app/                    # Streamlit application
-├── schemas/                # JSON schemas for artifacts
-├── process/                # VTCO process definitions
-├── governance/              # Risk matrix and workflows
-├── metrics/                # Metric configurations
-├── taxonomy/               # Knowledge graph taxonomy
-├── mcp/                    # Model Context Protocol server
-└── tests/                  # Test suite
+SandiStahl_Bot/
+├── app/
+│   ├── pages/
+│   │   ├── 18_Client_Profiles.py      # Client profile management
+│   │   ├── 19_Pipeline_Visualizer.py  # Pipeline visualization
+│   │   ├── 20_Coaching_Assistant.py   # AI coaching assistant
+│   │   └── 21_Post_Call_Analysis.py   # Post-call analysis
+│   └── main.py
+├── src/
+│   ├── coaching/                      # Sandy Bot coaching module
+│   │   ├── client.py
+│   │   ├── client_memory.py
+│   │   ├── pipeline_monitor.py
+│   │   └── compartment.py
+│   └── prompts/
+│       └── coaching_prompts.py
+├── schemas/
+│   └── client_profile.json
+├── .streamlit/
+│   └── secrets.toml                   # Local dev (add OPENAI_API_KEY)
+└── requirements.txt
 ```
 
-## Framework Components
+## Sandy Bot Components
 
-### 1. VTCO Process Mapping
-- 36 MLDLC steps across 6 phases
-- Verb-Task-Constraint-Outcome definitions
-- Complete validation criteria and artifacts
-
-### 2. Risk Matrix
-- **RED**: Human-Only (strategic decisions)
-- **YELLOW**: Human-AI Augmented
-- **GREEN**: Fully Automated
-
-### 3. MCP Server
-- Context retrieval and lineage traversal
-- Confidence scoring with source attribution
-- Anti-hallucination guardrails
-
-### 4. Knowledge Graph
-- Entity-relationship model for MLDLC concepts
-- Lineage tracking from source to output
-
-## Interactive Dashboards
-
-| Dashboard | Description |
+| Component | Description |
 |-----------|-------------|
-| VTCO Process Map | Explore all 36 MLDLC steps |
-| Risk Matrix | Visualize risk distribution |
-| ML Metrics | Technical metrics catalog |
-| Leadership Dashboard | Business impact metrics |
-| Knowledge Graph | Interactive entity exploration |
-| MCP Server | API documentation |
-| Artifact Validator | Schema validation |
-| Lineage Tracker | Trace artifact lineage |
-| Drift Monitor | Drift detection status |
+| Client Profiles | Manage client profiles and compartments |
+| Pipeline Visualizer | Visualize coaching pipeline stages |
+| Coaching Assistant | AI-powered coaching conversations |
+| Post Call Analysis | Analyze calls and generate insights |
 
-## Troubleshooting
+## Upstream
 
-- **Port 8501 in use?** Run `streamlit run app/main.py --server.port 8502`
-- **MCP import error?** Run from repo root: `$env:PYTHONPATH=$PWD; uvicorn mcp.mcp_server:app --port 8000`
-- **Quick start:** Run `.\start.ps1` to launch both services
+This POC is based on [MLDLC Governance Framework](https://github.com/Zmugha1/mldlc-governance-framework). To sync upstream changes:
 
-See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for more.
+```bash
+git fetch upstream
+git merge upstream/main
+```
 
 ## License
 
